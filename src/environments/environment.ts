@@ -4,7 +4,7 @@
 
 export const environment = {
   production: true,
-  API_URL:'http://pexshop.azurewebsites.net/api/auth/',
+  API_URL:'https://pexshop.azurewebsites.net/api/auth/',
 
 };
 
