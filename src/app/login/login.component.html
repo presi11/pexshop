@@ -4,13 +4,13 @@
       <form class="px-20 py-5">
         <!-- Email input -->
         <div class="form-outline mb-4">
-          <input type="email" id="form1Example1" class="form-control" />
-          <label class="form-label" for="form1Example1">Email address</label>
+          <input type="email" id="form1Example1" class="form-control" name="email" [(ngModel)]="user.email" [ngModelOptions]="{standalone: true}">
+          <label class="form-label" for="form1Example1" >Email address</label>
         </div>
 
         <!-- Password input -->
         <div class="form-outline mb-4">
-          <input type="password" id="form1Example2" class="form-control" />
+          <input type="password" id="form1Example2" class="form-control" [(ngModel)]="user.password" [ngModelOptions]="{standalone: true}"/>
           <label class="form-label" for="form1Example2">Password</label>
         </div>
 
@@ -42,7 +42,7 @@
         <button type="submit" class="btn btn-primary btn-block">Sign in</button>
       </form>
       <div class="dropdown-divider"></div>
-      <a class="dropdown-item" href="#">New around here? Sign up</a>
+      <a class="dropdown-item" routerLink="/register">New around here? Sign up</a>
       <a class="dropdown-item" href="#">Forgot password?</a>
     </div>
   </div>
