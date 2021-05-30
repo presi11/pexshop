@@ -12,10 +12,11 @@ export class AuthenticationService {
 
   login(authData: User): Observable<UserResponse | void> {
     return this.http
-      .post<UserResponse>(`${environment.API_URL}sigin`, authData)
+      .post<UserResponse>(`${environment.API_URL}/signin`, authData)
       .pipe(
         map((res: UserResponse) => {
           console.log('Res =>', res);
+          this.saveToken(res.token);
           // saveToken()
         }),
         catchError((err)=>this.handlerError(err))
@@ -24,7 +25,9 @@ export class AuthenticationService {
 
   logout(): void {}
   private readToken(): void {}
-  private saveToken(): void {}
+  private saveToken(token:string): void {
+    localStorage.setItem('token', token);
+  }
   private handlerError(err: { message: any; }): Observable<never> {
     let errorMessage = 'An error ocurred retrienving data';
    if(err){
