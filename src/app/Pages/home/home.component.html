@@ -1,37 +1,49 @@
 <header>
-    <!-- Intro settings -->
-    <style>
-      /* Default height for small devices */
+  <!-- Intro settings -->
+  <style>
+    /* Default height for small devices */
+    #intro-example {
+      height: 400px;
+    }
+
+    /* Height for devices larger than 992px */
+    @media (min-width: 992px) {
       #intro-example {
-        height: 400px;
+        height: 600px;
       }
-  
-      /* Height for devices larger than 992px */
-      @media (min-width: 992px) {
-        #intro-example {
-          height: 600px;
-        }
-      }
-    </style>
+    }
+  </style>
   <!-- Background image -->
-  <div id="intro-example" class="p-5 text-center bg-image">
+  <div id="intro-example" class="p-5 text-center bg-image" style="background-image: url('https://www.emprendedores.es/wp-content/uploads/2018/09/mascotas-1024x576.jpg');">
+
     <div class="mask" style="background-color: rgba(0, 0, 0, 0.7)">
       <div class="d-flex justify-content-center align-items-center h-100">
         <div class="text-white">
           <h1 class="mb-3">Pexshop</h1>
+          <h1 *ngIf="authSvc.isLogged | async">
+            Bienvenido usuario
+          </h1>
+
           <h5 class="mb-4">Dejanos a nosotros tus mascotas</h5>
           <a
             class="btn btn-outline-light btn-lg m-2"
-            routerLink="/login"
+            routerLink="/profile"
             role="button"
             rel="nofollow"
-            >Inicia Sesión</a
+            *ngIf="authSvc.isLogged | async; else elseBlock"
+            >Perfil</a
           >
-          <a
-            class="btn btn-outline-light btn-lg m-2"
-            href="#"
-            role="button"
-            >Conocenos</a
+          <ng-template #elseBlock>
+            <a
+              class="btn btn-outline-light btn-lg m-2"
+              routerLink="/login"
+              role="button"
+              rel="nofollow"
+              >Inicar Sesión</a
+            ></ng-template
+          >
+          <a class="btn btn-outline-light btn-lg m-2" routerLink="/register" role="button" 
+            >Registrate</a
           >
         </div>
       </div>

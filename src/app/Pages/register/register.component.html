@@ -1,1 +1,58 @@
-<p>register works!</p>
+<div class="container justify-content-center">
+  <div class="row justify-content-center">
+    <div class="col-md-4">
+      <form
+        class="px-20 py-3"
+        [formGroup]="registerForm"
+        (ngSubmit)="onRegister()"
+      >
+      <!-- username input -->
+        <mdb-form-control>
+          <div class="form-outline mb-4">
+            <input
+              mdbInput
+              type="text"
+              class="form-control"
+              name="username"
+              formControlName="username"
+            />
+            <label mdbLabel class="form-label" for="form1Example1">Usuario</label>
+          </div>
+        </mdb-form-control>
+        <mdb-form-control>
+          
+          <div class="form-outline mb-4">
+            <input
+              mdbInput
+              type="email"
+              class="form-control"
+              name="email"
+              formControlName="email"
+            />
+            <label mdbLabel class="form-label" for="form1Example1">Email</label>
+          </div>
+        </mdb-form-control>
+        <mdb-form-control>
+          <!-- Password input -->
+          <div class="form-outline mb-4">
+            <input
+              mdbInput
+              type="password"
+              class="form-control"
+              formControlName="password"
+            />
+            <label mdbLabel class="form-label" for="form1Example2"
+              >Contraseña</label
+            >
+          </div>
+        </mdb-form-control>
+        <!-- Submit button -->
+        <button type="submit" class="btn btn-primary btn-block">
+          Registrarse
+        </button>
+      </form>
+      <div class="dropdown-divider"></div>
+      <a href="#!">Ya tiene cuenta, inicie sesión!</a>
+    </div>
+  </div>
+</div>

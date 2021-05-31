@@ -13,7 +13,7 @@ export class LoginComponent implements OnInit {
     email: [''],
     password: [''],
   });
-  user: any = {};
+
 
   constructor(
     private authSvc: AuthenticationService,
@@ -27,13 +27,10 @@ export class LoginComponent implements OnInit {
   onLogin(): void {
     const formValue = this.loginForm.value;
     this.authSvc.login(formValue).subscribe((res) => {
-      if (!res) {
+      if (res) {
         this.router.navigate(['home']);
       }
     });
   }
 
-  redirect():void{
-    this.router.navigate(['home'])
-  }
 }
